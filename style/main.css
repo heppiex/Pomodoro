@@ -1,0 +1,408 @@
+.pomodoroBackground {
+  background-color: #e11d48;
+  -webkit-transition: background-color 0.5s ease-in-out 0s;
+  transition: background-color 0.5s ease-in-out 0s;
+}
+
+@-webkit-keyframes fade-bottom {
+  0% {
+    -webkit-transform: translateY(20%);
+            transform: translateY(20%);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-bottom {
+  0% {
+    -webkit-transform: translateY(20%);
+            transform: translateY(20%);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes vibrate {
+  0% {
+    -webkit-transform: translate(0);
+    transform: translate(0);
+  }
+  20% {
+    -webkit-transform: translate(-2px, 2px);
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    -webkit-transform: translate(-2px, -2px);
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    -webkit-transform: translate(2px, 2px);
+    transform: translate(2px, 2px);
+  }
+  80% {
+    -webkit-transform: translate(2px, -2px);
+    transform: translate(2px, -2px);
+  }
+  100% {
+    -webkit-transform: translate(0);
+    transform: translate(0);
+  }
+}
+
+@keyframes vibrate {
+  0% {
+    -webkit-transform: translate(0);
+    transform: translate(0);
+  }
+  20% {
+    -webkit-transform: translate(-2px, 2px);
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    -webkit-transform: translate(-2px, -2px);
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    -webkit-transform: translate(2px, 2px);
+    transform: translate(2px, 2px);
+  }
+  80% {
+    -webkit-transform: translate(2px, -2px);
+    transform: translate(2px, -2px);
+  }
+  100% {
+    -webkit-transform: translate(0);
+    transform: translate(0);
+  }
+}
+
+@-webkit-keyframes tracking-in-expand {
+  0% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes tracking-in-expand {
+  0% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes rotate-center {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate-center {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 95vh;
+}
+
+body * {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #1a1a1a;
+}
+
+.box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: white;
+  border-radius: 0.75em;
+  -webkit-animation: ease-in-out 0.75s fade-bottom;
+          animation: ease-in-out 0.75s fade-bottom;
+}
+
+#menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0.25rem 1rem 0.75rem;
+  border-bottom: 2.5px solid #d9d9d9;
+}
+
+#menu li {
+  list-style-type: none;
+  font-size: 1.5rem;
+  text-transform: capitalize;
+  cursor: pointer;
+  min-width: 5.25em;
+}
+
+#menu li:hover {
+  -webkit-animation: tracking-in-expand 0.5s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+          animation: tracking-in-expand 0.5s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+}
+
+#menu .longer {
+  min-width: 8.5em;
+}
+
+#menu #pomodoro {
+  margin-left: 0.2em;
+}
+
+#menu #shortBreak {
+  border-left: solid 2.5px #d9d9d9;
+  border-right: solid 2.5px #d9d9d9;
+  padding: 0 0.75em;
+  margin: 0 0.75em;
+}
+
+#time {
+  font-size: 7rem;
+}
+
+#start {
+  font-size: 3rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 0.5em;
+  padding: 0.25em;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  cursor: pointer;
+}
+
+#start:hover {
+  -webkit-animation: ease-in-out 0.5s vibrate infinite;
+          animation: ease-in-out 0.5s vibrate infinite;
+}
+
+.active {
+  text-decoration: underline;
+}
+
+#settings {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  cursor: pointer;
+  -webkit-animation: ease-in-out 0.75s fade-bottom;
+          animation: ease-in-out 0.75s fade-bottom;
+}
+
+#settings #settingsIcon {
+  height: 2.75rem;
+  background-color: #f2f2f2;
+  padding: 0.25rem;
+  margin-right: 0.5rem;
+  border-radius: 50%;
+}
+
+#settings #settingsIcon:hover {
+  -webkit-animation: rotate-center 0.75s ease-in-out;
+          animation: rotate-center 0.75s ease-in-out;
+}
+
+#settings p {
+  font-size: 1.5rem;
+  color: #f2f2f2;
+  min-width: 4em;
+}
+
+#settings p:hover {
+  -webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+          animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+}
+
+.hidden {
+  display: none;
+}
+
+#overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
+  z-index: 1;
+}
+
+.settingsBox {
+  z-index: 3;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 30.5rem;
+  height: 33.4rem;
+  background-color: white;
+  border-radius: 0.75em;
+  -webkit-animation: ease-in-out 0.75s fade-bottom;
+          animation: ease-in-out 0.75s fade-bottom;
+}
+
+.settingsBox * {
+  margin: 1em;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #8c8c8c;
+  font-size: 1rem;
+}
+
+.settingsBox fieldset {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0;
+  margin: 1em;
+  border: none;
+  border-bottom: 1px #d9d9d9 solid;
+}
+
+.settingsBox fieldset * {
+  margin: 1em 0;
+}
+
+.settingsBox fieldset input {
+  display: block;
+}
+
+.settingsBox div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 1px #d9d9d9 solid;
+}
+
+.settingsBox div p {
+  margin: 1em 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #404040;
+}
+
+.settingsBox legend {
+  font-size: 1.1rem;
+  margin: 1em 0;
+  font-weight: bold;
+  color: #595959;
+}
+
+.settingsBox input {
+  background-color: #f2f2f2;
+  border: none;
+  padding: 0.5em;
+  border-radius: 0.25em;
+  color: #1a1a1a;
+}
+
+.settingsBox #submit {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0.5em 1em;
+  margin-top: 6em;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  color: #f2f2f2;
+  background-color: #262626;
+  border-radius: 0.25em;
+  border: none;
+  cursor: pointer;
+}
+
+.settingsBox #submit:hover {
+  background-color: #1a1a1a;
+}
+
+.settingsBox #closeSettings {
+  width: 1.2em;
+  height: 1.2em;
+  margin: 1em 0 1em 1em;
+  cursor: pointer;
+}
+
+.settingsBox #closeSettings:hover {
+  -webkit-animation: rotate-center 0.5s ease-in-out;
+          animation: rotate-center 0.5s ease-in-out;
+}
+
+.hidden {
+  display: none;
+}
+/*# sourceMappingURL=main.css.map */

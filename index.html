@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style/main.css" />
+    <link rel="shortcut icon" href="img/tomato.png" />
+    <title id="title">Pomodoro - 25:00</title>
+  </head>
+  <body class="pomodoroBackground" id="body">
+    <div id="settings">
+      <img src="img/settings.png" alt="" id="settingsIcon" />
+      <p>settings</p>
+    </div>
+
+    <form action="" class="settingsBox hidden">
+      <div>
+        <p>Timer Settings</p>
+        <img src="img/close.png" alt="" id="closeSettings" />
+      </div>
+      <fieldset>
+        <legend>Time in minutes:</legend>
+        <label
+          >Pomodoro:
+          <input
+            id="pomodoroSettings"
+            type="Number"
+            min="0"
+            max="720"
+            value="25"
+        /></label>
+        <label
+          >Short Break:
+          <input
+            type="Number"
+            min="0"
+            max="360"
+            value="5"
+            id="shortBreakSettings"
+        /></label>
+        <label
+          >Long Break:
+          <input
+            type="Number"
+            min="0"
+            max="720"
+            value="20"
+            id="longBreakSettings"
+        /></label>
+      </fieldset>
+      <label
+        >Long Break interval:
+        <input
+          type="Number"
+          min="0"
+          max="10"
+          value="2"
+          id="longIntervalSettings"
+      /></label>
+      <input type="submit" value="Submit" id="submit" />
+    </form>
+
+    <div class="box">
+      <ul id="menu">
+        <li>
+          <a id="pomodoro">Pomodoro</a>
+        </li>
+        <li class="longer"><a id="shortBreak">Short break</a></li>
+        <li><a id="longBreak">Long Break</a></li>
+      </ul>
+      <p id="time">25:00</p>
+      <a id="start" class="pomodoroBackground">start</a>
+    </div>
+    <div id="overlay" class="hidden"></div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
